@@ -71,9 +71,12 @@
       });
 
       function nodeaddCallback(){
-        console.log(node);
-        const src = node.getAttribute('src');
-        document.getElementById("result").src = imgNode.src;
+        let children = document.getElementById("box").childNodes;
+        let imgNode;
+        if(children.length > 0) {
+          imgNode = children[0];
+          document.getElementById("result").src = imgNode.src;
+        }
         document.getElementById("debug_div").innerHTML = "待機成功";       
       }
         /*
