@@ -64,8 +64,8 @@
 
           var canvas = document.getElementById("decode-canvas");
           var ctx = canvas.getContext( '2d' );
-          var sw = img.naturalWidth;
-          var sh = img.naturalHeight;
+          var sw = imgNode.naturalWidth;
+          var sh = imgNode.naturalHeight;
           ctx.drawImage(imgNode, 0, 0, sw, sh);
 
           let NewANode = document.createElement("a");
