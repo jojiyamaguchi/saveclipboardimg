@@ -68,9 +68,11 @@
           var sh = imgNode.naturalHeight;
           ctx.drawImage(imgNode, 0, 0, sw, sh);
 
+          var dataURL = canvas.toDataURL();
+
           let NewANode = document.createElement("a");
           NewANode.href = "";
-          NewANode.download = imgNode.src;
+          NewANode.download = dataURL;
           NewANode.innerHTML = "ここをクリックして画像を保存してください";
           document.getElementById("parent-box").appendChild(NewANode);
         }
