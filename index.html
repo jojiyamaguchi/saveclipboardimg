@@ -66,13 +66,25 @@
           var ctx = canvas.getContext( '2d' );
           var sw = imgNode.naturalWidth;
           var sh = imgNode.naturalHeight;
-          ctx.drawImage(imgNode, 0, 0, sw, sh);
-
+          ctx.drawImage(imgNode.src, 0, 0, sw, sh);
           var dataURL = canvas.toDataURL();
+
+          // (1)ファイルをバイナリ化
+          let bin = atob(imgNode.src.replace(/^.*,/, ''));
+
+          // (2)バイナリデータに変換する
+          let buffer = new Uint8Array(bin.length);
+          for (let i = 0; i < bin.length; i++) {
+              buffer[i] = bin.charCodeAt(i);
+          }
+
+          // (3)Fileオブジェクトを生成
+          let image_file = new File([buffer.buffer], file_name, {type: file_type});
+
 
           let NewANode = document.createElement("a");
           NewANode.href = "";
-          NewANode.download = dataURL;
+          NewANode.download = image_file;
           NewANode.innerHTML = "ここをクリックして画像を保存してください";
           document.getElementById("parent-box").appendChild(NewANode);
         }
