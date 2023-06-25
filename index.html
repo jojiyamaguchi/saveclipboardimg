@@ -48,7 +48,32 @@
         }
 
         document.getElementById("debug_div").innerHTML = "children=" + children.length;
+      }
+      function waitForElement(selector, callback, intervalMs, timeoutMs) {
+          const startTimeInMs = Date.now();
+          findLoop();
 
+          function findLoop() {
+              if (document.querySelector(selector) != null) {
+                  callback();
+                  return;
+              } else {
+                  setTimeout(() => {
+                      if (timeoutMs && Date.now() - startTimeInMs > timeoutMs) return;
+                      findLoop();
+                  }, intervalMs);
+              }
+          }
+      }
+
+      document.querySelector('div[id="box"]').addEventListener('paste', function(e) {
+        waitForElement('div#box img', 'ほげ').then(node => {
+          console.log(node);
+          const src = node.getAttribute('src');
+          document.getElementById("result").src = imgNode.src;
+          document.getElementById("debug_div").innerHTML = "待機成功";
+        });
+      });
         /*
         //HTML内に画像を表示
         html2canvas(document.getElementById("box"),{
@@ -67,7 +92,6 @@
             document.getElementById("ss").href = imgData;
           }
         });*/
-      }
       //});
     </script>
   </body>
