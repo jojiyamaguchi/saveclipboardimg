@@ -38,7 +38,7 @@
       document.querySelector('div[id="box"]').addEventListener('paste', function(e) {
   
         //HTML内に画像を表示
-        html2canvas(document.getElementById("box"),{
+        html2canvas(document.getElementById("box").childNodes[1],{
           onrendered: function(canvas){
             //imgタグのsrcの中に、html2canvasがレンダリングした画像を指定する。
             var imgData = canvas.toDataURL();
