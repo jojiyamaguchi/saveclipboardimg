@@ -79,12 +79,12 @@
           }
 
           // (3)Fileオブジェクトを生成
-          let image_file = new File([buffer.buffer], file_name, {type: file_type});
+          let image_file = new File([buffer.buffer], "html_ss.png", {type: "image/png"});
 
 
           let NewANode = document.createElement("a");
           NewANode.href = "";
-          NewANode.download = image_file;
+          NewANode.download = image_file.name;
           NewANode.innerHTML = "ここをクリックして画像を保存してください";
           document.getElementById("parent-box").appendChild(NewANode);
         }
