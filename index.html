@@ -25,9 +25,6 @@
     <div class="container">
     <div id="canvas_div">
       <div id="cdiv">
-        <div　class="text-center">
-          下の色がついた範囲に画像をペーストしてください
-        </div>
         <div class="paste-box" id="box" contenteditable="true"></div>
         <button type="button" onclick="aClick()">ダウンロード準備</button>
         <a href="" id="ss" download="html_ss.png">ペーストした画像をダウンロード</a>
@@ -57,7 +54,7 @@
             document.getElementById("ss").href = imgData;
           }
         });
-      }
+      });
     </script>
   </body>
 </html>
