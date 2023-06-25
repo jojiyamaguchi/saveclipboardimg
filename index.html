@@ -38,8 +38,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
     <script>
 
-      //ロードされた際の処理として実施：
-      function aClick(){
+      document.querySelector('div[id="box"]').addEventListener('paste', function(e) {
   
         //HTML内に画像を表示
         html2canvas(document.getElementById("box"),{
