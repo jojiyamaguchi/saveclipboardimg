@@ -67,13 +67,15 @@
       }
 
       document.querySelector('div[id="box"]').addEventListener('paste', function(e) {
-        waitForElement('div#box img', 'ほげ').then(node => {
-          console.log(node);
-          const src = node.getAttribute('src');
-          document.getElementById("result").src = imgNode.src;
-          document.getElementById("debug_div").innerHTML = "待機成功";
-        });
+        waitForElement('div#box img', nodeaddCallback, 500, 10000);
       });
+
+      function nodeaddCallback(){
+        console.log(node);
+        const src = node.getAttribute('src');
+        document.getElementById("result").src = imgNode.src;
+        document.getElementById("debug_div").innerHTML = "待機成功";       
+      }
         /*
         //HTML内に画像を表示
         html2canvas(document.getElementById("box"),{
