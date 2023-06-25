@@ -19,6 +19,7 @@
         <button type="button" onclick="aClick()">ダウンロード準備</button>
         <a href="" id="ss" download="html_ss.png">ペーストした画像をダウンロード</a>
       </div>
+      <img src="" id="result" />
     </div>
   </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
@@ -26,14 +27,14 @@
       //ロードされた際の処理として実施：
       function aClick(){
   
-/*        //HTML内に画像を表示
+        //HTML内に画像を表示
         html2canvas(document.getElementById("box"),{
           onrendered: function(canvas){
             //imgタグのsrcの中に、html2canvasがレンダリングした画像を指定する。
             var imgData = canvas.toDataURL();
-            //document.getElementById("result").src = imgData;
+            document.getElementById("result").src = imgData;
           }
-        });*/
+        });
   
         //ボタンを押下した際にダウンロードする画像を作る
         html2canvas(document.getElementById("box"),{
