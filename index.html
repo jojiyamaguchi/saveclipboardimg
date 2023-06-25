@@ -24,11 +24,12 @@
   </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
     <script>
+
       //ロードされた際の処理として実施：
       function aClick(){
   
         //HTML内に画像を表示
-        html2canvas(document.getElementById("box"),{
+        html2canvas(document.getElementById("box").childNodes[0],{
           onrendered: function(canvas){
             //imgタグのsrcの中に、html2canvasがレンダリングした画像を指定する。
             var imgData = canvas.toDataURL();
@@ -44,7 +45,6 @@
             document.getElementById("ss").href = imgData;
           }
         });
-  
       }
     </script>
   </body>
