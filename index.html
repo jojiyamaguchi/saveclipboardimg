@@ -26,7 +26,7 @@
       <div class="paste-box" id="box" contenteditable="true"></div>
       <button type="button" onclick="aClick()">ダウンロード準備</button>
       <a href="" id="ss" download="html_ss.png">ペーストした画像をダウンロード</a>
-
+      <canvas id="decode-canvas" />
       <img src="" id="result" />
       <div id="debug_div"></div>
     </div>
@@ -62,7 +62,12 @@
           document.getElementById("result").src = imgNode.src;
           document.getElementById("debug_div").innerHTML = "待機成功";
 
-          let NewANode = document.createElement("a")
+          var canvas = document.getElementById("decode-canvas");
+          var ctx = canvas.getContext( '2d' );
+          ctx.drawImage(imgNode, 0, 0);
+
+          let NewANode = document.createElement("a");
+          NewANode.href = "";
           NewANode.download = imgNode.src;
           NewANode.innerHTML = "ここをクリックして画像を保存してください";
           document.getElementById("parent-box").appendChild(NewANode);
