@@ -16,7 +16,8 @@
           下の色がついた範囲に画像をペーストしてください
         </div>
         <div class="paste-box" id="box" contenteditable="true"></div>
-        <a href="" id="ss" download="html_ss.png" onclick="aClick()">ペーストした画像をダウンロード</a>
+        <button type="button" onclick="aClick()">ダウンロード準備</button>
+        <a href="" id="ss" download="html_ss.png">ペーストした画像をダウンロード</a>
       </div>
     </div>
   </div>
@@ -35,7 +36,7 @@
         });*/
   
         //ボタンを押下した際にダウンロードする画像を作る
-        html2canvas(document.body,{
+        html2canvas(document.getElementById("box"),{
           onrendered: function(canvas){
             //aタグのhrefにキャプチャ画像のURLを設定
             var imgData = canvas.toDataURL();
