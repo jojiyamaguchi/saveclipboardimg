@@ -30,12 +30,14 @@
         <a href="" id="ss" download="html_ss.png">ペーストした画像をダウンロード</a>
       </div>
       <img src="" id="result" />
+      <div id="debug_div"></div>
     </div>
   </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
     <script>
 
-      document.querySelector('div[id="box"]').addEventListener('paste', function(e) {
+      //document.querySelector('div[id="box"]').addEventListener('paste', function(e) {
+      document.querySelector('div[id="box"]').addEventListener('change', function(e) {
         let children = document.getElementById("box").childNodes;
 
         let imgNode;
@@ -43,6 +45,8 @@
           imgNode = children[0];
           document.getElementById("result").src = imgNode.src;
         }
+
+        document.getElementById("debug_div").innerHTML = "children=" + children.length;
 
         /*
         //HTML内に画像を表示
