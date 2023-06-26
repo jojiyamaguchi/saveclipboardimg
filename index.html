@@ -71,9 +71,27 @@
           // document.getElementById("result").src = imgNode.src; // for debug
           // document.getElementById("debug_div").innerHTML = imgNode.src; // for debug
 
+          if(isValidUrl(imgNode.src)){
+            fetch(imgNode.src)
+            .then(response => response.blob())
+            .then(blob => {
+              imgNode.src = URL.createObjectURL(blob);
+            })
+            .catch(() => setError(true)); 
+          }            
+          
           var downloadANode = document.getElementById("a-download");
           downloadANode.href = imgNode.src;
           document.getElementById("a-download").style.display = "block";
+        }
+      }
+
+      function isValidUrl(string) {
+        try {
+          new URL(string);
+          return true;
+        } catch (err) {
+          return false;
         }
       }
 
