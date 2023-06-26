@@ -63,7 +63,7 @@
         waitForElement('div#box img', nodeaddCallback, 500, 10000);
       });
 
-      function nodeaddCallback(){
+      async function nodeaddCallback(){
         let children = document.getElementById("box").childNodes;
         let imgNode;
         let imgURL;
