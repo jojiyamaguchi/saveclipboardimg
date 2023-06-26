@@ -73,12 +73,16 @@
           // document.getElementById("debug_div").innerHTML = imgNode.src; // for debug
 
           if(isValidUrl(imgNode.src)){
-            await fetch(imgNode.src)
+            /*fetch(imgNode.src)
             .then(response => response.blob())
             .then(blob => {
               imgURL = URL.createObjectURL(blob);
             })
             .catch(() => setError(true)); 
+            */
+            const res = await fetch(url);
+            const blob = await res.blob();
+            imgURL = URL.createObjectURL(blob);
           }
           else {
             imgURL = imgNode.src;
