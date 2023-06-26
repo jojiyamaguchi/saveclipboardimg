@@ -25,7 +25,7 @@
     <div class="container" id="parent-box">
       <div class="paste-box" id="box" contenteditable="true"></div>
       <button type="button" onclick="aClick()">ダウンロード準備</button>
-      <a href="" id="ss" download="html_ss.png">ペーストした画像をダウンロード</a>
+      <a href="" id="ss" download="save_clipboard_img.png">ペーストした画像をダウンロード</a>
       <canvas id="decode-canvas"></canvas>
       <img src="" id="result"></img>
       <div id="debug_div"></div>
@@ -79,7 +79,7 @@
           }
 
           // (3)Fileオブジェクトを生成
-          let image_file = new File([buffer.buffer], "html_ss.png", {type: "image/png"});
+          let image_file = new File([buffer.buffer], "save_clipboard_img.png", {type: "image/png"});
 
 
           let NewANode = document.createElement("a");
