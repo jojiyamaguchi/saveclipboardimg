@@ -24,11 +24,8 @@
   <body>
     <div class="container" id="parent-box">
       <div class="paste-box" id="box" contenteditable="true"></div>
-      <button type="button" onclick="aClick()">ダウンロード準備</button>
-      <a href="" id="ss" download="save_clipboard_img.png">ペーストした画像をダウンロード</a>
-      <canvas id="decode-canvas"></canvas>
-      <img src="" id="result"></img>
-      <div id="debug_div"></div>
+      <!-- <img src="" id="result"></img> -->
+      <!-- <div id="debug_div"></div> -->
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
     <script>
@@ -59,28 +56,8 @@
         let imgNode;
         if(children.length > 0) {
           imgNode = children[0];
-          document.getElementById("result").src = imgNode.src;
-          document.getElementById("debug_div").innerHTML = imgNode.src;
-/*
-          var canvas = document.getElementById("decode-canvas");
-          var ctx = canvas.getContext( '2d' );
-          var sw = imgNode.naturalWidth;
-          var sh = imgNode.naturalHeight;
-          ctx.drawImage(imgNode, 0, 0, sw, sh);
-          var dataURL = canvas.toDataURL();
-*/
-          // (1)ファイルをバイナリ化
-          let bin = atob(imgNode.src.replace(/^.*,/, ''));
-
-          // (2)バイナリデータに変換する
-          let buffer = new Uint8Array(bin.length);
-          for (let i = 0; i < bin.length; i++) {
-              buffer[i] = bin.charCodeAt(i);
-          }
-
-          // (3)Fileオブジェクトを生成
-          let image_file = new File([buffer.buffer], "save_clipboard_img.png", {type: "image/png"});
-
+          // document.getElementById("result").src = imgNode.src; // for debug
+          // document.getElementById("debug_div").innerHTML = imgNode.src; // for debug
 
           let NewANode = document.createElement("a");
           NewANode.href = imgNode.src;
