@@ -24,12 +24,15 @@
   <body>
     <div class="container" id="parent-box">
       <div class="paste-box" id="box" contenteditable="true"></div>
+      <a href="" download="save_clipboard_img.png" id="a-download">ここをクリックして画像を保存してください</a>
       <!-- <img src="" id="result"></img> -->
       <!-- <div id="debug_div"></div> -->
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
     <script>
 
+      document.getElementById("a-download").display = "none";
+      
       function waitForElement(selector, callback, intervalMs, timeoutMs) {
           const startTimeInMs = Date.now();
           findLoop();
@@ -59,11 +62,9 @@
           // document.getElementById("result").src = imgNode.src; // for debug
           // document.getElementById("debug_div").innerHTML = imgNode.src; // for debug
 
-          let NewANode = document.createElement("a");
-          NewANode.href = imgNode.src;
-          NewANode.download = image_file.name;
-          NewANode.innerHTML = "ここをクリックして画像を保存してください";
-          document.getElementById("parent-box").appendChild(NewANode);
+          var downloadANode = document.getElementById("a-download");
+          downloadANode.href = imgNode.src;
+          document.getElementById("a-download").display = "block";
         }
       }
 
