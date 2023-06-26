@@ -7,7 +7,7 @@
         background : rgb(0,200,50);
        }
        .paste-box:empty::before {
-          content:'ここに画像をペーストしてください (Ctrl+V/⌘+V).';
+          content:'Paste image here(Ctrl+V/⌘+V).';
           font-size:3vh;
           width:90%;
           display:inline-block;
@@ -20,9 +20,10 @@
     </style>
   </head>
   <body>
+    <h1>Save your clipboard image to a file.</h1>
     <div class="container" id="parent-box">
       <div class="paste-box" id="box" contenteditable="true"></div>
-      <a href="" download="save_clipboard_img.png" id="a-download">ここをクリックして画像を保存してください</a>
+      <a href="" download="save_clipboard_img.png" id="a-download">Click here to save image.</a>
       <!-- <img src="" id="result"></img> -->
       <!-- <div id="debug_div"></div> -->
     </div>
