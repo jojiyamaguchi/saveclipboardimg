@@ -31,7 +31,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
     <script>
 
-      document.getElementById("a-download").display = "none";
+      document.getElementById("a-download").style.display = "none";
       
       function waitForElement(selector, callback, intervalMs, timeoutMs) {
           const startTimeInMs = Date.now();
@@ -64,7 +64,7 @@
 
           var downloadANode = document.getElementById("a-download");
           downloadANode.href = imgNode.src;
-          document.getElementById("a-download").display = "block";
+          document.getElementById("a-download").style.display = "block";
         }
       }
 
