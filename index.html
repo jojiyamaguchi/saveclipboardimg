@@ -5,20 +5,18 @@
     <style>
       .paste-box {
         background : rgb(0,200,50);
-        &:empty::before {
+       }
+       .paste-box:empty::before {
           content:'ここに画像をペーストしてください (Ctrl+V/⌘+V).';
           font-size:3vh;
           width:90%;
           display:inline-block;
           color:#ccc;
-          
-       }
-       
+       }   
        /* Hide the default text onFocus */
-       &:focus::before{
+       .paste-box:focus::before{
           color:transparent;
        }
-      }
     </style>
   </head>
   <body>
