@@ -73,7 +73,7 @@
           // document.getElementById("debug_div").innerHTML = imgNode.src; // for debug
 
           if(isValidUrl(imgNode.src)){
-            fetch(imgNode.src)
+            await fetch(imgNode.src)
             .then(response => response.blob())
             .then(blob => {
               imgURL = URL.createObjectURL(blob);
