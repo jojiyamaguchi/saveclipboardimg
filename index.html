@@ -32,6 +32,17 @@
     <script>
 
       document.getElementById("a-download").style.display = "none";
+      document.querySelector("a[id='a-download']").addEventListener("click", function(e) {
+        setTimeout( clearImg, 5000); // 5秒経てば、ペーストした画像とダウンロードリンクが消える
+      });
+
+      function clearImg(){
+        var pasteBox = document.getElementById("box");
+        while (pasteBox.firstChild) {
+          pasteBox.removeChild(pasteBox.firstChild);
+        }
+        document.getElementById("a-download").style.display = "none";
+      }
       
       function waitForElement(selector, callback, intervalMs, timeoutMs) {
           const startTimeInMs = Date.now();
@@ -50,7 +61,7 @@
           }
       }
 
-      document.querySelector('div[id="box"]').addEventListener('paste', function(e) {
+      document.querySelector("div[id='box']").addEventListener("paste", function(e) {
         waitForElement('div#box img', nodeaddCallback, 500, 10000);
       });
 
