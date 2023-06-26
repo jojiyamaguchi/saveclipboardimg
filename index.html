@@ -80,7 +80,7 @@
             })
             .catch(() => setError(true)); 
             */
-            const res = await fetch(url);
+            const res = await fetch(imgNode.src);
             const blob = await res.blob();
             imgURL = URL.createObjectURL(blob);
           }
