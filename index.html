@@ -72,20 +72,13 @@
           // document.getElementById("result").src = imgNode.src; // for debug
           // document.getElementById("debug_div").innerHTML = imgNode.src; // for debug
 
-          if(isValidUrl(imgNode.src)){
-            /*fetch(imgNode.src)
-            .then(response => response.blob())
-            .then(blob => {
-              imgURL = URL.createObjectURL(blob);
-            })
-            .catch(() => setError(true)); 
-            */
+          if(isBase64(imgNode.src)){
+            imgURL = imgNode.src;
+          }
+          else {
             const res = await fetch(imgNode.src);
             const blob = await res.blob();
             imgURL = URL.createObjectURL(blob);
-          }
-          else {
-            imgURL = imgNode.src;
           }
           
           var downloadANode = document.getElementById("a-download");
@@ -93,7 +86,16 @@
           document.getElementById("a-download").style.display = "block";
         }
       }
-
+      
+      function isBase64(str) {
+          if (str ==='' || str.trim() ===''){ return false; }
+          try {
+              return btoa(atob(str)) == str;
+          } catch (err) {
+              return false;
+          }
+      }
+      
       function isValidUrl(string) {
         try {
           new URL(string);
