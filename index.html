@@ -74,13 +74,13 @@
 
           if(isBase64(imgNode.src)){
             imgURL = imgNode.src;
-            //document.getElementById("debug_div").innerHTML = "base64 true"; // for debug
+            document.getElementById("debug_div").innerHTML = "base64 true"; // for debug
           }
           else {
             const res = await fetch(imgNode.src);
             const blob = await res.blob();
             imgURL = URL.createObjectURL(blob);
-            //document.getElementById("debug_div").innerHTML = "base64 false"; // for debug
+            document.getElementById("debug_div").innerHTML = "base64 false"; // for debug
           }
           
           var downloadANode = document.getElementById("a-download");
@@ -92,10 +92,10 @@
       function isBase64(str) {
           if (str ==='' || str.trim() ===''){ return false; }
           try {
-              document.getElementById("debug_div").innerHTML = btoa(atob(str));
-              return btoa(atob(str)) == str;
+            atob(str);
+            return true;
           } catch (err) {
-              return false;
+            return false;
           }
       }
       
