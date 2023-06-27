@@ -72,15 +72,15 @@
           // document.getElementById("result").src = imgNode.src; // for debug
           
 
-          if(isBase64(imgNode.src)){
-            imgURL = imgNode.src;
-            document.getElementById("debug_div").innerHTML = "base64 true"; // for debug
-          }
-          else {
+          if(isUrl(imgNode.src)){
             const res = await fetch(imgNode.src);
             const blob = await res.blob();
             imgURL = URL.createObjectURL(blob);
             document.getElementById("debug_div").innerHTML = "base64 false"; // for debug
+          }
+          else {
+            imgURL = imgNode.src;
+            document.getElementById("debug_div").innerHTML = "base64 true"; // for debug
           }
           
           var downloadANode = document.getElementById("a-download");
@@ -97,6 +97,15 @@
           } catch (err) {
             return false;
           }
+      }
+      
+      function isUrl(string) {
+        if(string.includes("http")){
+          return true;
+        }
+        else {
+          return false;
+        }
       }
       
       function isValidUrl(string) {
