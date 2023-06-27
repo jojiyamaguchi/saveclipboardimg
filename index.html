@@ -73,7 +73,7 @@
           
 
           if(isUrl(imgNode.src)){
-            const res = await fetch(imgNode.src);
+            let res = await fetch(imgNode.src);
             res.setHeader("Access-Control-Allow-Origin", "*");
             const blob = await res.blob();
             imgURL = URL.createObjectURL(blob);
