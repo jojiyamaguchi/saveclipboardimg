@@ -25,7 +25,7 @@
       <a href="" target="_blank" id="a-download" download="save_clipboard_img" >Click here to save image.</a>
       <div class="paste-box" id="box" contenteditable="true"></div>
       <!-- <img src="" id="result"></img> -->
-      <div id="debug_div"></div>
+      <!-- <div id="debug_div"></div> -->
     </div>
     <script>
 
@@ -76,11 +76,11 @@
             const res = await fetch(imgNode.src);
             const blob = await res.blob();
             imgURL = URL.createObjectURL(blob);
-            document.getElementById("debug_div").innerHTML = "base64 false"; // for debug
+            //document.getElementById("debug_div").innerHTML = "base64 false"; // for debug
           }
           else {
             imgURL = imgNode.src;
-            document.getElementById("debug_div").innerHTML = "base64 true"; // for debug
+            //document.getElementById("debug_div").innerHTML = "base64 true"; // for debug
           }
           
           var downloadANode = document.getElementById("a-download");
